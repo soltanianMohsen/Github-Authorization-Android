@@ -1,25 +1,39 @@
 package com.mydigipay.challenge.github
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.mydigipay.challenge.BuildConfig
+import com.mydigipay.challenge.R
+import com.mydigipay.challenge.dialog.WaitDialog
+import com.mydigipay.challenge.github.oauth.GithubOauth
 import kotlinx.android.synthetic.main.activity_main.*
 
-const val CLIENT_ID = "CLIENT_ID"
-const val CLIENT_SECRET = "CLIENT_SECRET"
-const val REDIRECT_URI = "REDIRECT_URI"
 
 class MainActivity : AppCompatActivity() {
+
+
+    companion object {
+        const val CLIENT_ID = BuildConfig.CLIENT_ID
+        const val CLIENT_SECRET = BuildConfig.CLIENT_SECRET
+        const val APPLICATION_ID  = BuildConfig.APPLICATION_ID
+        const val REDIRECT_URI  = BuildConfig.REDIRECT_URI
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var waitDialog = WaitDialog(this)
 
         authorize.setOnClickListener { view ->
-            val url = "https://github.com/login/oauth/authorize?client_id=$CLIENT_ID&redirect_uri=$REDIRECT_URI&scope=repo user&state=0"
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
+            GithubOauth
+                .Builder()
+                .withClientId(CLIENT_ID)
+                .withClientSecret(CLIENT_SECRET)
+                .withContext(applicationContext)
+                .packageName(APPLICATION_ID)
+                .nextActivity("com.mydigipay.challenge.github.LoginUriActivity")
+                .debug(true)
+                .execute()
         }
     }
 }

@@ -3,6 +3,10 @@ package com.mydigipay.challenge.github
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import com.mydigipay.challenge.R
+import com.mydigipay.challenge.github.MainActivity.Companion.CLIENT_ID
+import com.mydigipay.challenge.github.MainActivity.Companion.CLIENT_SECRET
+import com.mydigipay.challenge.github.MainActivity.Companion.REDIRECT_URI
 import com.mydigipay.challenge.network.oauth.RequestAccessToken
 import com.mydigipay.challenge.repository.oauth.AccessTokenDataSource
 import com.mydigipay.challenge.repository.token.TokenRepository
@@ -16,41 +20,43 @@ class LoginUriActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_uri_activity)
+        setContentView(R.layout.layout_profile)
     }
 
-    override fun onResume() {
-        super.onResume()
+//    override fun onResume() {
+//        super.onResume()
+//
+//        val intent = intent
+//        if (Intent.ACTION_VIEW == intent.action) {
+//            val uri = intent.data
+//            val code = uri?.getQueryParameter("code") ?: ""
+//            code.takeIf { it.isNotEmpty() }?.let { code ->
+//                val accessTokenJob = CoroutineScope(Dispatchers.IO).launch {
+//                    val response = accessTokenDataSource.accessToken(
+//                        RequestAccessToken(
+//                            CLIENT_ID,
+//                            CLIENT_SECRET,
+//                            code,
+//                            REDIRECT_URI,
+//                            "0"
+//                        )
+//                    ).await()
+//
+//                    tokenRepository.saveToken(response.accessToken).await()
+//                }
+//
+//                accessTokenJob.invokeOnCompletion {
+//                    CoroutineScope(Dispatchers.Main).launch {
+//                        token.text = tokenRepository.readToken().await()
+//                        this.cancel()
+//                        accessTokenJob.cancelAndJoin()
+//                    }
+//                }
+//            } ?: run { finish() }
+//        }
+//
+//
+//    }
 
-        val intent = intent
-        if (Intent.ACTION_VIEW == intent.action) {
-            val uri = intent.data
-            val code = uri?.getQueryParameter("code") ?: ""
-            code.takeIf { it.isNotEmpty() }?.let { code ->
-                val accessTokenJob = CoroutineScope(Dispatchers.IO).launch {
-                    val response = accessTokenDataSource.accessToken(
-                        RequestAccessToken(
-                            CLIENT_ID,
-                            CLIENT_SECRET,
-                            code,
-                            REDIRECT_URI,
-                            "0"
-                        )
-                    ).await()
 
-                    tokenRepository.saveToken(response.accessToken).await()
-                }
-
-                accessTokenJob.invokeOnCompletion {
-                    CoroutineScope(Dispatchers.Main).launch {
-                        token.text = tokenRepository.readToken().await()
-                        this.cancel()
-                        accessTokenJob.cancelAndJoin()
-                    }
-                }
-            } ?: run { finish() }
-        }
-
-
-    }
 }

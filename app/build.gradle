@@ -8,7 +8,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
     defaultConfig {
-        applicationId "com.mydigipay.challenge.github"
+        applicationId "com.mydigipay.challenge"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -19,6 +19,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        all{
+            buildConfigField "String", "CLIENT_ID", "\"111f1eb0e79982cb35c1\""
+            buildConfigField "String", "CLIENT_SECRET", "\"539494a768799e928a255b54e62237495539c019\""
+            buildConfigField "String", "REDIRECT_URI", "\"http://www.example.com/\""
         }
     }
 }
@@ -47,4 +52,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+
 }
