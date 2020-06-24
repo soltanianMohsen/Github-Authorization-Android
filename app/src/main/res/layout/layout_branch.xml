@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="viewModel"
+            type="com.mydigipay.challenge.presentation.ui.fragments.branche.BranchViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/app_background">
+
+        <TextView
+            android:id="@+id/lblBranchesTitle"
+            style="@style/Heading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/lbl_branch"
+            android:textAppearance="@style/FontBold"
+            android:textSize="@dimen/font_size_large" />
+
+
+        <LinearLayout
+            android:id="@+id/llLbl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/_4sdp"
+                android:text="@string/msg_users_list_is_empty"
+                android:textAppearance="@style/FontSemiBold"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/font_size_large" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/lblBranchesTitle"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:visibility="visible"
+            tools:itemCount="1"
+            tools:listitem="@layout/branch_item_list" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:visibility="@{safeUnbox(viewModel.isWaiting) ? View.VISIBLE : View.GONE}"
+            app:indicatorColor="@color/border_colorPrimary"
+            app:indicatorName="BallPulseIndicator" />
+
+
+    </RelativeLayout>
+
+</layout>
+
+
+

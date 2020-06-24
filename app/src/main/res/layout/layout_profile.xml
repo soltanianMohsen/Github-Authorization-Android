@@ -1,170 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/app_background"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/rlMain"
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="viewModel"
+            type="com.mydigipay.challenge.presentation.ui.fragments.profile.ProfileViewModel" />
+    </data>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp">
+        android:layout_height="match_parent"
+        android:background="@color/app_background"
+        android:orientation="vertical"
+        >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/t9_ic_bell"
-            android:tint="@color/textColorPrimary" />
-
-        <TextView
-            style="@style/Heading"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/lbl_profile"
-            android:textAppearance="@style/FontBold"
-            android:textSize="@dimen/font_size_large" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/ic_menu" />
-    </RelativeLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never">
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/rlMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:background="@drawable/shadow"
-            android:orientation="vertical">
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp">
 
-            <com.google.android.material.card.MaterialCardView
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_bell"
+                android:tint="@color/textColorPrimary" />
+
+            <TextView
+                style="@style/Heading"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/lbl_profile"
+                android:textAppearance="@style/FontBold"
+                android:textSize="@dimen/font_size_large" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_menu" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_4sdp"
-                app:cardElevation="0dp">
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/shadow"
+                android:orientation="vertical">
 
-                <RelativeLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:cardElevation="0dp">
 
-                    <androidx.coordinatorlayout.widget.CoordinatorLayout
-                        android:id="@+id/clMain"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/ivBg"
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:id="@+id/clMain"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_150sdp"
-                            android:layout_marginBottom="@dimen/_50sdp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/ic_image_bg" />
+                            android:layout_height="wrap_content">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:orientation="horizontal">
-
-                            <com.mydigipay.challenge.utils.CircleImageView
-                                android:id="@+id/ivProfile"
-                                android:layout_width="@dimen/_90sdp"
-                                android:layout_height="@dimen/_90sdp"
-                                android:layout_marginStart="@dimen/_24sdp"
-                                android:src="@drawable/ic_profile"
-                                app:civ_border_color="@color/white"
-                                app:civ_border_width="@dimen/_2sdp"/>
+                            <ImageView
+                                android:id="@+id/ivBg"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_150sdp"
+                                android:layout_marginBottom="@dimen/_50sdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_image_bg" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
-                                android:layout_marginStart="@dimen/_16sdp"
-                                android:layout_marginEnd="@dimen/_16sdp"
-                                android:orientation="vertical">
+                                android:orientation="horizontal">
 
-                                <TextView
-                                    style="@style/Heading"
-                                    android:text="@string/username"
-                                    android:textAppearance="@style/FontMedium" />
+                                <com.mydigipay.challenge.utils.CircleImageView
+                                    android:id="@+id/ivProfile"
+                                    android:layout_width="@dimen/_90sdp"
+                                    android:layout_height="@dimen/_90sdp"
+                                    android:layout_marginStart="@dimen/_24sdp"
+                                    app:avatar="@{viewModel.githubUserModel.avatarUrl}"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="@dimen/_2sdp" />
 
-                                <TextView
-                                    style="@style/SubHeading"
-                                    android:text="@string/designation" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginStart="@dimen/_16sdp"
+                                    android:layout_marginEnd="@dimen/_16sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        style="@style/Heading"
+                                        android:text="@{viewModel.githubUserModel.name}"
+                                        android:textAppearance="@style/FontMedium" />
+
+                                    <TextView
+                                        style="@style/SubHeading"
+                                        android:text="@{viewModel.githubUserModel.login}" />
+                                </LinearLayout>
                             </LinearLayout>
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/clMain"
+                            android:layout_margin="@dimen/_16sdp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/lblsearch"
+                                style="@style/Profile"
+                                android:drawableStart="@drawable/ic_search"
+                                android:gravity="fill_vertical"
+                                android:layout_gravity="center_vertical"
+                                android:minLines="2"
+                                android:text="@string/lbl_search_here"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:background="@color/view_color" />
+
+                            <TextView
+                                style="@style/Profile"
+                                android:drawableStart="@drawable/ic_internet"
+                                android:gravity="fill_vertical"
+                                android:minLines="2"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/lbl_see_profile"
+                                android:onClick="@{() -> viewModel.openInBrowser(viewModel.githubUserModel.htmlUrl)}"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:background="@color/view_color" />
+
+                            <TextView
+                                android:id="@+id/lblLogout"
+                                style="@style/Profile"
+                                android:drawableStart="@drawable/ic_logout"
+                                android:gravity="fill_vertical"
+                                android:text="@string/lbl_logout"
+                                android:minLines="2"
+                                android:layout_gravity="center_vertical"/>
+
+
+
                         </LinearLayout>
-                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/clMain"
-                        android:layout_margin="@dimen/_16sdp"
-                        android:orientation="vertical">
+                    </RelativeLayout>
 
-                        <TextView
-                            style="@style/Profile"
-                            android:drawableStart="@drawable/t9_ic_home"
-                            android:gravity="fill_vertical"
-                            android:text="@string/lbl_offer" />
+                </com.google.android.material.card.MaterialCardView>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="@color/view_color" />
-                        <TextView
-                            style="@style/Profile"
-                            android:drawableStart="@drawable/t9_ic_home"
-                            android:gravity="fill_vertical"
-                            android:text="@string/lbl_offer" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="@color/view_color" />
-                        <TextView
-                            style="@style/Profile"
-                            android:drawableStart="@drawable/t9_ic_home"
-                            android:gravity="fill_vertical"
-                            android:text="@string/lbl_offer" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="@color/view_color" />
-                        <TextView
-                            style="@style/Profile"
-                            android:drawableStart="@drawable/t9_ic_home"
-                            android:gravity="fill_vertical"
-                            android:text="@string/lbl_offer" />
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:visibility="@{safeUnbox(viewModel.isWaiting) ? View.VISIBLE : View.GONE}"
+            app:indicatorColor="@color/border_colorPrimary"
+            app:indicatorName="BallPulseIndicator" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="@color/view_color" />
-                        <TextView
-                            style="@style/Profile"
-                            android:drawableStart="@drawable/t9_ic_home"
-                            android:gravity="fill_vertical"
-                            android:text="@string/lbl_offer" />
+    </LinearLayout>
 
-                    </LinearLayout>
-                </RelativeLayout>
+</layout>
 
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-</LinearLayout>

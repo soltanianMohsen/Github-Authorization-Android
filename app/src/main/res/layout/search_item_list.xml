@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/user_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:background="@drawable/shadow">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_10sdp">
+            <View
+                android:layout_width="@dimen/_3sdp"
+                android:id="@+id/viewLine"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/border_colorPrimary"/>
+            <com.mydigipay.challenge.utils.CircleImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_toEndOf="@id/viewLine"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_2sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvName"
+                tools:text="profile_userName"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@id/ivProfile"
+                android:textColor="@color/textColorPrimary"
+                android:textAppearance="@style/FontSemiBold"
+                android:textSize="@dimen/font_size_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDescription"
+                tools:text="John"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:textColor="@color/textColorPrimary"
+                android:layout_below="@id/tvName"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="@dimen/font_size_small"
+                android:layout_toEndOf="@id/ivProfile"/>
+
+            <RelativeLayout
+                android:layout_below="@id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tvSignUp"
+                    style="@style/MaterialButton"
+                    android:layout_marginStart="0dp"
+                    android:paddingHorizontal="@dimen/_16sdp"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/see_repo" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

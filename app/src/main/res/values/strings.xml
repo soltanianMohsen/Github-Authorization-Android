@@ -2,6 +2,8 @@
     <string name="font_medium">fonts/GoogleSans-Medium.ttf</string>
     <string name="font_regular">fonts/GoogleSans-Regular.ttf</string>
     <string name="font_bold">fonts/GoogleSans-Bold.ttf</string>
+    <string name="font_semi_bold">fonts/googlesansMedium.ttf</string>
+
 
 
     <string name="app_name">Github Login</string>
@@ -11,7 +13,20 @@
     <string name="username">User Name</string>
     <string name="designation">News Editor</string>
     <string name="lbl_offer">Offers</string>
-    <string name="lbl_profile">Profile</string>
+    <string name="lbl_see_profile">See Profile</string>
+    <string name="lbl_commits">commits</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_profile">Github Profile</string>
+    <string name="lbl_search">Github Search</string>
+    <string name="lbl_repo">Github Repo</string>
+    <string name="lbl_branch">Github Branches</string>
+    <string name="lbl_search_here">Search</string>
+    <string name="lbl_welcome_to_search_n_bar">Welcome to Search \n Bar</string>
+    <string name="msg_users_list_is_empty">Empty!</string>
+    <string name="msg_fetch_users_list_has_error">Has Error!</string>
+    <string name="see_repo">See Repositories</string>
+    <string name="see_branches">See Branches</string>
+    <string name="see_commits">See Commits</string>
 
 
 </resources>

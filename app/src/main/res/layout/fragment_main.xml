@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.main.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/authorize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            style="@style/MaterialButton2"
+            android:layout_width="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_24sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="@string/authorize" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
